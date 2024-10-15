@@ -1,0 +1,9 @@
+# Biểu đồ lớp
+Class
+![alt text](https://www.planttext.com/api/plantuml/png/D8un3i8m34Ltdy8Z3DoXg0mWiJD7ZLLPJMmKEtH0d8o18t45WWBRUyFN--_dQp0FnMjE0BQmO54Z06TFX6CAPcIuwuG73dC96G2cxYkbn3BZ7H3n98uNbgYhVVMc7F6iqxBPmkE_s5zRB9FupuzQMwxpg3bNQV619BP37m000F__0m00)
+# Gói
+Packages
+![alt text](https://www.planttext.com/api/plantuml/png/D8un3i8m34Ltdy8Z3DoXg0mWiJD7ZLLPJMmKEtH0d8o18t45WWBRUyFN--_dQp0FnMjE0BQmO54Z06TFX6CAPcIuwuG73dC96G2cxYkbn3BZ7H3n98uNbgYhVVMc7F6iqxBPmkE_s5zRB9FupuzQMwxpg3bNQV619BP37m000F__0m00)
+# Ca sử dụng
+Use case
+![alt text](https://www.planttext.com/api/plantuml/png/UhzxlqDnIM9HIMbk3XTNSNPcda9HVd4g5rT9PabEga9eSQg2SoAGSCbCJ2zAp5NWukBIyCbFpypJvD88AirJ22ZAJqujBjPKI2nMq01n33MvIejJaq5wD4BpKlBXAX32GFqA_gKbO3sXpYPSN0wfUIb0-m40003__mC0)
