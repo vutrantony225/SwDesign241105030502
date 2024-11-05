@@ -51,6 +51,14 @@ employeeId: Mã nhân viên cần xem (String).
 
 employeeInfo: Thông tin chi tiết của nhân viên (Employee object).
 
+### Phương thức: 
+- addEmployee(String id, String name, String position, double salary): Thêm nhân viên.
+  
+- updateEmployee(String id, String newName, String newPosition, double newSalary): Cập nhật thông tin nhân viên.
+  
+- deleteEmployee(String id): Xóa nhân viên.
+  
+- getEmployeeInfo(String id): Lấy thông tin nhân viên.
 ### Biểu đồ ca sử dụng:
 ![alt text](https://www.planttext.com/api/plantuml/png/V92z2i8m54RtFCMbUmVRJWvIKQ4EWbJgVcclfP2VagH84P_CmKVo5Kmbbjh1CPoJZvEy7i_KMDIs4vnXQPM60qgiIVjJbZDDfKLPSuBWYBrMdCEfDvP403S6q1agqJYuhYhOYPQhdYW0D51i5bDUj1LQ6XNOoulI0csZfDUZgRubJXFTA_5KEJTq_RUNi3jZ_ZqGXgkX29OmX9A_DSEHmxxpQq3ZTcTQx3JVDmvbkOU9Wv-otuMKP3NyyXi00F__0m00).
 
@@ -83,6 +91,13 @@ payrollDetails: Chi tiết bảng lương cho từng nhân viên (Map<Employee, 
 reportId: Mã báo cáo lương cần xem (String).
 
 payrollReport: Nội dung chi tiết của báo cáo lương (PayrollReport object).
+
+### Phương thức: 
+- generateReport(Date period, List<Employee> employees): Tạo báo cáo lương.
+  
+- viewReport(String reportId): Xem báo cáo lương.
+  
+- getPayrollDetails(String employeeId): Lấy chi tiết lương của nhân viên.
 
 ### Biểu đồ ca sử dụng:
 ![alt text](https://www.planttext.com/api/plantuml/png/VD2n2i9030RWFKyHkdUmeuDK7EmYI8lkeOsbSBsMN8eKySaSV2HVmMivHKISBiTzVqZkSRkdJabqQ0rGgPtWZYpLBE6MvQ5O3rNZJn0kbMnj6ACzZT8PWyNebDi8Bu0uE2x9-SSjMnPInfVAkUz48oI7XytYanuRFlzc2Lm1ma0OnwifYKjyz-v3IEOGP7b0YKTproyGblYlyEG5JRAnDQHig-bpdW000F__0m00)
@@ -151,6 +166,15 @@ leaveDays: Số ngày nghỉ phép (Integer).
 
 adjustedSalary: Lương điều chỉnh cho nhân viên (Double, ví dụ sau khi trừ đi các ngày nghỉ không lương).
 
+### Phương thức: 
+- requestLeave(String id, Date start, Date end, String type): Yêu cầu nghỉ phép.
+  
+- approveLeave(String id, Date start, Date end): Phê duyệt nghỉ phép.
+  
+- rejectLeave(String id, Date start, Date end, String reason): Từ chối nghỉ phép.
+  
+- updateLeaveStatus(String id, Date start, Date end, String status): Cập nhật trạng thái nghỉ phép.
+  
 ### Biểu đồ ca sử dụng:
 ![alt text](https://www.planttext.com/api/plantuml/png/R9712e9048Rl-nI3Tm-fNJf44O67Wb1wWC4c8LRTTaT1eYVhq2Fr2gssaeB7uVjdzflPp-kzCOoQwq8ApBZIi2-Kh5eYLnwnn9oqg-94QCeOormIU2TiTIKbfArXAZnu283QK8R6meJkDHc60s537g21ysun3coLqbL3aq0mdN2pRqruEEPdTK5s_P0oScrSB9g93R9NkyPuv58yXHYM1jzVTvwmWi5VTbdXpk1uOFcWFyV3lh-t_-4uSIIon0dr14pl_Gyi_m4rClwDsL1vwNxg2m00__y30000)
 ## Audit and Compliance
@@ -190,6 +214,15 @@ complianceDetails: Chi tiết về tuân thủ trong kỳ (ComplianceReport obje
 
 nonComplianceIssues: Các vấn đề không tuân thủ (List<String>).
 
+### Phương thức: 
+- performAudit(Date period, List<PayrollReport> reports): Kiểm toán báo cáo lương.
+  
+- ensureCompliance(List<PayrollReport> reports): Kiểm tra tính tuân thủ.
+  
+- generateComplianceReport(Date period, List<PayrollReport> reports): Tạo báo cáo tuân thủ.
+  
+- identifyDiscrepancies(List<AuditReport> auditReports): Phát hiện sai lệch trong báo cáo kiểm toán.
+  
 ### Biểu đồ ca sử dụng:
 ![alt text](https://www.planttext.com/api/plantuml/png/JD312e9040RW-pp5uDr3UkiGXaGT2iBe0OPr4c7TbTdr8D6JTUYHUeLKLlEq3Finyyzytv_CUHBVDHf8UIkuxyfwU4Dr8KCLpzMf067boLIQCRfIBrPhlFNESnFX4n0xnuhS-CdoiDBWZAQs4PB3UxvPmuDndJ2UkIADkMrQNPDH76YofaSsBEHvnR3WrihSE8KNG5W0utWtpi8jpbdQa8L60M6ru9B1XIXwYgAM6N0g0ae7j8Ju0vGf16Hiol6Gy0C00F__0m00)
 
@@ -200,8 +233,11 @@ nonComplianceIssues: Các vấn đề không tuân thủ (List<String>).
 
 
 
-public class Employee {
+
+    public class Employee {
+
     private String employeeId;
+    
     private String name;
 
     public Employee(String employeeId, String name) {
@@ -221,7 +257,7 @@ public class Employee {
     public String toString() {
         return "Employee ID: " + employeeId + ", Name: " + name;
     }
-}
+    }
 
 
 ## Lớp PayrollSystem
@@ -229,11 +265,14 @@ public class Employee {
 
 
 
-import java.util.HashMap;
-import java.util.Map;
+    import java.util.HashMap;
 
-public class PayrollSystem {
+    import java.util.Map;
+
+    public class PayrollSystem {
+
     private Map<String, Employee> employees;  
+    
     private Map<String, Timecard> timecards;  
 
     public PayrollSystem() {
@@ -319,18 +358,21 @@ public class PayrollSystem {
             System.out.println("Employee not found.");
         }
     }
-}
+    }
 
 ## Lớp Timecard
 
 
 
 
-import java.time.LocalDateTime;
-import java.time.Duration;
+    import java.time.LocalDateTime;
 
-public class Timecard {
+    import java.time.Duration;
+
+    public class Timecard {
+
     private LocalDateTime checkInTime;
+    
     private LocalDateTime checkOutTime;
 
     public void checkIn() {
@@ -358,16 +400,17 @@ public class Timecard {
         Duration duration = Duration.between(checkInTime, checkOutTime);
         return String.format("%d hours and %d minutes", duration.toHours(), duration.toMinutesPart());
     }
-}
+    }
 
 
 ## Lớp PayrollSystemTest
 
 
 
-public class PayrollSystemTest {
+    public class PayrollSystemTest {
+
     public static void main(String[] args) {
-        // Khởi tạo hệ thống trả lương
+    
         PayrollSystem payrollSystem = new PayrollSystem();
 
         System.out.println("Adding employees...");
@@ -387,7 +430,7 @@ public class PayrollSystemTest {
         payrollSystem.checkIn("E001");
 
         try {
-            Thread.sleep(5000); // Giả lập nhân viên làm việc 5 giây
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -400,4 +443,4 @@ public class PayrollSystemTest {
 
         payrollSystem.displayWorkedHours("E001");
     }
-}
+    }
