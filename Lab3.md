@@ -414,3 +414,21 @@ Biểu đồ:
 
 ![alt text](https://www.planttext.com/api/plantuml/png/l5PBZjD04Dtx5AtPa9781QnHD0op2SgC0Zb1krsJcB6xhVv4CYXh3i46Ji01ic0n9vaJS0MgxNRS_dG02SWYjglhywfULTa_Zj-lbQPIcoAFefAoHxe5Sh6Me81hgZF1oOfM82_8nuZWZ-LKARAcbHHv_bfmRQyWoTKLQnuM2wTP_wJXJdTssKbBcN6DShO3zkWE3hvxATu3qtUK8ve2WVmw49D0DJX3FzOMj9FULClKFp5bEZ8vH0Ul33T6PHmGq4fiCzOl16O0ye4o8CiRoXytbT9G8BgJl8ylXLAeJCzectPCshkNrfUmJc9Y_vVyGSYYhhrV6Y_WsjPl0tAVuLCmP5tbMIgOiIMCoQsx6nQdDjyWsKRDBcFIt4tfl3LWmAhKDo5e0-fkgQO9LMTmAhe_iL0srxXj0G_h0sYsywbqkiiqjW0kJpOEcDTFFOAKILHz_xS9QdktnqqWsl_Z9Z1H7Yq1YF-85d--B0ZoYh5wnCPRfiM8qy_HWTr57RuvEqat6ckmjTMnrmwQA85tjlxeirpuRgTMaECUwuFLodJLAywS5i9Otb9XaXmwEHHbBYe0btrtKD8Aqu7O9ZMcPz1LeQ2CsQZtfaX0ZjATIs4q2aB72SQufmNqJdmGRGy6ehVDEahDxkEwYOSHctp6ycPNfuDwr4Sg-u2oN4p0QthVHvIfTq3JAYQ943bGxj4WfP1ts5ROPkFu9Ir1hc0F-I0JBVZem8TGpvQF01iiHTTlHA9YiigKlcgBkEYQZQOfAfmVTWc5s8ElrivFRzXh02lWMxspi-w3HuX0spKGcly0jVsH7Sb7NTDGPJyRfZZ4cao94vDY1hsHgRV12omhvMJtVFn4jjdpyHibxEah8_dpyND9zazVI6vNWuh67ntp-MBmCeo9KO2gPpuWd55e7peFaVzMjoRU8rO9nxmsKr4_ljKS0EhhXi8sXc5GdfTeWEoqgc9yhGYxJ17_17f_mVYgemHEY-2ibfl7c1GrtWcDPbnyXT_87lML5j9ICB7_HqmutwHx6uJC1hJyYM6ObWalqJKEWFsS_Wa00F__0m00)
 
+Giải thích biểu đồ:
+Presentation Layer:
+
+PayrollController và ProjectManagementController thuộc lớp điều khiển, chịu trách nhiệm nhận yêu cầu từ người dùng, xử lý và gọi các dịch vụ từ Business Logic Layer.
+Các lớp này sẽ giao tiếp với các lớp trong Business Logic Layer qua các giao diện như IPrintService và IProjectManagementDatabase.
+Business Logic Layer:
+
+IBankSystem, IPrintService, IProjectManagementDatabase là các giao diện định nghĩa các chức năng cho hệ thống con như ngân hàng, in ấn và quản lý dự án.
+BankSystem, PrintService, và ProjectManagementDatabase là các lớp thực hiện các chức năng cụ thể của hệ thống con, tương tác với các entity và thực hiện các nghiệp vụ.
+Data Access Layer:
+
+Paycheck, BankInformation, Document, Status, Queue, và Project là các lớp entity, lưu trữ thông tin dữ liệu thực tế trong hệ thống.
+DatabaseConnection là lớp quản lý kết nối đến cơ sở dữ liệu, đảm nhận việc mở và đóng kết nối tới các hệ thống lưu trữ dữ liệu của BankSystem, PrintService, và ProjectManagementDatabase.
+Mối quan hệ giữa các layers:
+Presentation Layer giao tiếp với Business Logic Layer thông qua các giao diện như IPrintService và IProjectManagementDatabase. Các lớp trong Business Logic Layer thực hiện các tác vụ nghiệp vụ và trả kết quả về cho lớp điều khiển trong Presentation Layer.
+Business Logic Layer giao tiếp với Data Access Layer để truy xuất và lưu trữ dữ liệu, ví dụ: BankSystem sử dụng Paycheck và BankInformation, PrintService làm việc với Document, Status, và Queue.
+DatabaseConnection quản lý việc kết nối đến cơ sở dữ liệu và tương tác với các hệ thống con như BankSystem, PrintService, và ProjectManagementDatabase để lấy và lưu trữ dữ liệu.
+
